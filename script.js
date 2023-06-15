@@ -4,12 +4,40 @@ let secoundNumber;
 let displayedValue="";
 
 function getButton(e){
-    let variable= e.target.textContent;
-    displayedValue+=variable;
-    console.log(displayedValue);
+    let variable= e.target;
+    let spr =e.target.closest('div').getAttribute('id');
+    if(variable.textContent=="clr" ){ 
+        firstNumber=undefined;
+        operator = undefined;
+        secoundNumber=undefined;
+    } 
+    if(variable.textContent=="=" ){ 
+        firstNumber=operate(firstNumber,operator,secoundNumber)
+        operator = undefined;
+        secoundNumber=undefined;
+    } 
+    if(spr == "operators" &&spr!="=" ) 
+    {
+        operator=variable.textContent;
+        
+    }
+    if(spr=="numbers" &&  operator!==undefined)
+    {
+        if(secoundNumber==undefined) {secoundNumber= variable.textContent;}
+        else {secoundNumber+=variable.textContent;}
+        
+    }
+    if(spr=="numbers" && operator===undefined)
+    {
+        if(firstNumber==undefined){ firstNumber= variable.textContent}
+        else {firstNumber+=variable.textContent;}
+        
+    }
+    if(operator !==undefined && spr!="operators") displayedValue=secoundNumber;
+    //displayedValue+=variable.textContent;
+    else displayedValue=firstNumber;
     document.getElementById("display").textContent=displayedValue;
-    //console.log(displayedValue);
-    return variable;
+    //return variable;
 }
 
 
@@ -30,6 +58,10 @@ function multiply(firstNum,secoundNum){
 }
 
 function divide(firstNum,secoundNum){
+    if(secoundNum==0){
+        alert("You can't divide with 0");
+        return;
+    }
     return firstNum / secoundNum;
 }
 
@@ -50,7 +82,9 @@ function operate(firstNumber,operator,secoundNumber){
             wynik=divide(firstNumber,secoundNumber)  
             break;
     }
+ 
 
+    return wynik;
 
 
 }
