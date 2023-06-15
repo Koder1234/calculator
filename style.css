@@ -10,6 +10,9 @@ body{
 #main{
     width: 1200px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #container{
     display: flex;
@@ -17,14 +20,28 @@ body{
     align-items: center;
 
 }
+#display{
+    width:320px;
+    border:solid rgb(166, 201, 86) 5px;
+    margin-bottom: 10px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+}
+#column{
+    display: flex;
+    flex-direction: column;
+}
 
+#special,
 #numbers{
-    width:250px;
+    width:240px;
     margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
 
 }
 #operators{
-    width:85px;
+    width:80px;
 }
 
 
@@ -34,4 +51,9 @@ button{
     background-color: bisque;
     border-radius: 10px;
 
+}
+
+.big{
+    flex:1 1 0;
+    text-align: center;
 }

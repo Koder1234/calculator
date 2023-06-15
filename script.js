@@ -1,7 +1,21 @@
 let operator;
 let firstNumber;
 let secoundNumber;
+let displayedValue="";
 
+function getButton(e){
+    let variable= e.target.textContent;
+    displayedValue+=variable;
+    console.log(displayedValue);
+    document.getElementById("display").textContent=displayedValue;
+    //console.log(displayedValue);
+    return variable;
+}
+
+
+
+const buttons=document.querySelectorAll("button");
+buttons.forEach(button=>button.addEventListener("click",getButton))
 
 function add(firstNum,secoundNum){
     return firstNum + secoundNum;
