@@ -26,6 +26,7 @@ body{
     margin-bottom: 10px;
     background-color: antiquewhite;
     border-radius: 20px;
+    height: 18px;
 }
 #column{
     display: flex;

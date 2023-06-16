@@ -18,6 +18,20 @@ function getButton(e){
     } 
     if(spr == "operators" &&spr!="=" ) 
     {
+        if(operator!==undefined && secoundNumber!==undefined){
+            firstNumber=operate(firstNumber,operator,secoundNumber)
+            operator = undefined;
+            secoundNumber=undefined;
+            //operator=variable.textContent;
+        }
+        // else if(operator!==undefined){
+            // secoundNumber=firstNumber;
+            // firstNumber=operate(firstNumber,operator,secoundNumber)
+            // operator = undefined;
+            // secoundNumber=undefined;
+            //operator=variable.textContent;
+
+        // }
         operator=variable.textContent;
         
     }
@@ -34,10 +48,8 @@ function getButton(e){
         
     }
     if(operator !==undefined && spr!="operators") displayedValue=secoundNumber;
-    //displayedValue+=variable.textContent;
     else displayedValue=firstNumber;
     document.getElementById("display").textContent=displayedValue;
-    //return variable;
 }
 
 
@@ -46,7 +58,7 @@ const buttons=document.querySelectorAll("button");
 buttons.forEach(button=>button.addEventListener("click",getButton))
 
 function add(firstNum,secoundNum){
-    return firstNum + secoundNum;
+    return parseInt(firstNum) + parseInt(secoundNum);
 }
 
 function subtract(firstNum,secoundNum){
